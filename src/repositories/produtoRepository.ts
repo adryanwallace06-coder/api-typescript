@@ -16,4 +16,16 @@ async function getAllProdutos(): Promise<Produto[]> {
     });
 }
 
-export default { getProduto, getAllProdutos };
+async function addProduto(produto: Produto): Promise<Produto> {
+    return new Promise((resolve, reject) => {
+        if (!produto.nome || !produto.preco) {
+            return reject(new Error("Dados do produto inválidos"));
+        }
+
+        const novoProduto = new Produto(produto.id, produto.nome, produto.preco, produto.descricao, produto.promo);
+        produtos.push(novoProduto);
+        return resolve(novoProduto);
+    });
+}
+
+export default { getProduto, getAllProdutos, addProduto };

@@ -3,6 +3,7 @@ export default class Produto {
     nome: string;
     preco: number;
     descricao?:string;
+    // ? apos a declaração de um atributo quer dizer que ele é opcional, ou seja, pode ou não ser informado
     promo: boolean;
 
     private static nextId: number = 1;
